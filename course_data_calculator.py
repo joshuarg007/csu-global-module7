@@ -1,5 +1,18 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Filename: course_lookup.py
+Author: Joshua R. Gutierrez
+Date: November 28, 2025
+Version: 1.0
+Description: Program that stores course information including room numbers,
+instructors, and meeting times. The user enters a course number and the program
+displays the corresponding room, instructor, and meeting time.
+"""
+
 def main():
-    # Dictionary of course numbers to room numbers
+
+# Dictionary of course numbers to room numbers
     course_rooms = {
         "CSC101": "3004",
         "CSC102": "4501",
@@ -26,17 +39,22 @@ def main():
         "COM241": "1:00 p.m."
     }
 
-    # Ask the user for a course number
-    course = input("Enter a course number (for example CSC101): ").strip().upper()
+    while True:
+        # Ask the user for a course number
+        course = input("Enter a course number (for example CSC101): ").strip().upper()
 
-    # Look up the course information
-    if course in course_rooms:
-        print(f"Course: {course}")
-        print(f"Room number: {course_rooms[course]}")
-        print(f"Instructor: {course_instructors[course]}")
-        print(f"Meeting time: {course_times[course]}")
-    else:
-        print("That course number was not found.")
+        if course == "EXIT":
+            print("Goodbye.")
+            break
+        
+        # Look up the course information
+        if course in course_rooms:
+            print(f"Course: {course}")
+            print(f"Room number: {course_rooms[course]}")
+            print(f"Instructor: {course_instructors[course]}")
+            print(f"Meeting time: {course_times[course]}")
+        else:
+            print("That course number was not found.")
 
 
 if __name__ == "__main__":
